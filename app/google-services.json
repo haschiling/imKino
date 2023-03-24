@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "945196255609",
+    "project_id": "imkino-86ff4",
+    "storage_bucket": "imkino-86ff4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945196255609:android:30c2356280646bfa6707a8",
+        "android_client_info": {
+          "package_name": "com.example.imkino"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945196255609-4ljp8old3il8raqo7dcq2gaknk7sv9is.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcANgh2TQcZEEYyfLzF22VQNuLWafJuSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945196255609-4ljp8old3il8raqo7dcq2gaknk7sv9is.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
