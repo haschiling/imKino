@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
+
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -50,6 +52,8 @@ public class PermissionListActivity extends AppCompatActivity {
     private StorageReference storageRef;
     private DatabaseReference databaseRef;
     private StorageTask uploadTask;
+    private static final String TAG = "PermissionListActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,8 @@ public class PermissionListActivity extends AppCompatActivity {
         Picasso picasso = new Picasso.Builder(this).build();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        databaseRef = FirebaseDatabase.getInstance().getReference("users");
+
 
 
         filmName = findViewById(R.id.editTextNameOfTheFilmPermission);
@@ -126,6 +132,22 @@ public class PermissionListActivity extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                             // Object deleted successfully
                             Toast.makeText(getApplicationContext(), "Object deleted", Toast.LENGTH_SHORT).show();
+                            // Delete the data from the database
+                            databaseRef.child(selectedUpload.getKey()).removeValue()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            // Data deleted successfully
+                                            Toast.makeText(getApplicationContext(), "Data deleted", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            // Handle errors
+                                            Toast.makeText(getApplicationContext(), "Error deleting data", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -144,7 +166,6 @@ public class PermissionListActivity extends AppCompatActivity {
             }
         });
 
-
         changePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,6 +178,8 @@ public class PermissionListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(uploadTask != null && uploadTask.isInProgress()){
+                    Toast.makeText(PermissionListActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+                } else if(uploadTask != null && uploadTask.isInProgress()){
                     Toast.makeText(PermissionListActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
                 }else {
                     uploadFile();
@@ -182,6 +205,8 @@ public class PermissionListActivity extends AppCompatActivity {
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             imageUri = data.getData();
             Picasso.get().load(imageUri).into(imageOfFilm);
+            Log.d(TAG, "Selected image URI: " + imageUri);
+            Toast.makeText(this, "image is not null", Toast.LENGTH_SHORT).show();
         }else {
             Log.d(TAG, "onActivityResult: something went wrong");
         }
