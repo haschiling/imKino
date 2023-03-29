@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -34,19 +35,58 @@ public class ListActivity extends AppCompatActivity {
 
     SearchView searchView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        searchView = findViewById(R.id.search);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
 
-        uploadsList = new ArrayList<>();
-        imageAdapter = new ImageAdapter(ListActivity.this, uploadsList);
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                String searchText = newText.toLowerCase();
+                Query query;
+                if (searchText.isEmpty()) {
+                    query = databaseReference.orderByChild("name");
+                } else {
+                    query = databaseReference.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff");
+                }
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        uploadsList.clear();
+                        for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                            Upload upload = postSnapshot.getValue(Upload.class);
+                            if (upload != null) {
+                                if (upload.getName() == null) {
+                                    upload.setName("No name");
+                                }
+                                if (searchText.isEmpty() || upload.getName().toLowerCase().contains(searchText)) {
+                                    uploadsList.add(upload);
+                                }
+                            }
+                        }
+                        imageAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(ListActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                return true;
+            }
+        });
         databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String searchText = searchView.getQuery().toString().toLowerCase();
                 uploadsList.clear();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
@@ -54,19 +94,22 @@ public class ListActivity extends AppCompatActivity {
                         if (upload.getName() == null) {
                             upload.setName("No name");
                         }
-                        uploadsList.add(upload);
+                        if (searchText.isEmpty() || upload.getName().toLowerCase().contains(searchText)) {
+                            uploadsList.add(upload);
+                        }
                     }
                 }
                 imageAdapter.notifyDataSetChanged();
-
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(ListActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        uploadsList = new ArrayList<>();
+        imageAdapter = new ImageAdapter(ListActivity.this, uploadsList);
         add = findViewById(R.id.buttonaddFILM);
         add.setOnClickListener(new View.OnClickListener() {
             @Override

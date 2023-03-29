@@ -47,20 +47,18 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         nameTextView = findViewById(R.id.textViewName);
         genreTextView = findViewById(R.id.textViewGenre);
         yearTextView = findViewById(R.id.textViewYear);
         limitTextView = findViewById(R.id.textViewLimit);
         aboutTextView = findViewById(R.id.textViewAbout);
         imageView = findViewById(R.id.imageViewRead);
-        back = findViewById(R.id.buttonBAckToListA);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openListActivity();
-            }
-        });
+
+
 
         Upload selectedUpload = (Upload) getIntent().getSerializableExtra("SELECTED_UPLOAD");
         if (selectedUpload != null) {

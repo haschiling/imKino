@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity"
+    android:background="@color/blue"
     android:orientation="vertical"
-    android:background="@color/blue">
+    tools:context=".SignInActivity">
 
     <ImageView
         android:id="@+id/imageViewLogo"
@@ -29,11 +29,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
-
-
+        app:layout_constraintVertical_bias="0.267" />
 
     <Button
         android:id="@+id/buttonSignIn"
@@ -65,18 +64,25 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="282dp"
-        android:layout_height="47dp"
+        android:layout_width="312dp"
+        android:layout_height="43dp"
         android:ems="10"
         android:hint="Enter your Password"
-        android:textColor="@color/white"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.444" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="39dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

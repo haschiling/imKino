@@ -34,7 +34,6 @@ public class AdminListActivity extends AppCompatActivity {
     private List<Upload> uploadsList;
 
 
-    private Button backFromAdminList;
 
 
     @Override
@@ -69,13 +68,8 @@ public class AdminListActivity extends AppCompatActivity {
             }
         });
 
-        backFromAdminList = (Button) findViewById(R.id.buttonBackToStart);
-        backFromAdminList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAdminActivity();
-            }
-        });
+
+
        ListView listView = findViewById(R.id.ListAdmin);
        listView.setAdapter(imageAdapter);
 

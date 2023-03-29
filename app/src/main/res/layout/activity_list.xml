@@ -27,11 +27,14 @@
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent=".8" />
 
+
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search"
             app:queryHint="Search film"
             app:iconifiedByDefault="false"
             android:layout_width="310dp"
+            android:layout_marginLeft="10dp"
+            android:iconifiedByDefault="false"
             android:layout_height="match_parent"></androidx.appcompat.widget.SearchView>
 
 
@@ -44,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
-        android:textColor="#0157a2"
+        android:textColor="#0C104E"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

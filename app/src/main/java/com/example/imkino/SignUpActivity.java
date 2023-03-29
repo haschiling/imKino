@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
-    private Button backToSignIn;
+
     private Button signInDone;
     FirebaseAuth firebaseAuth;
     private EditText editTextMail;
@@ -28,6 +28,8 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         EditText EditTextPassL =(EditText)findViewById(R.id.editTextPassword);
         EditTextPassL.setHintTextColor(Color.WHITE);
@@ -42,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
         editTextPass = (EditText) findViewById(R.id.editTextPassword);
         editTextRepPass = (EditText) findViewById(R.id.editTextRepPassword);
         signInDone = (Button) findViewById(R.id.buttonSignUp);
-        backToSignIn = (Button) findViewById(R.id.buttonBackToSignIn);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
 

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FilmListAdapter extends BaseAdapter {
+
     private Context context;
     private int layout;
     private List<Item> list;
@@ -28,6 +29,7 @@ public class FilmListAdapter extends BaseAdapter {
         this.list = list;
         this.filteredList = new ArrayList<>(list);
     }
+
 
     @Override
     public int getCount() {

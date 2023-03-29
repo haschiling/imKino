@@ -47,14 +47,9 @@ public class AboutAdminActivity extends AppCompatActivity {
         limitTextView = findViewById(R.id.textViewLimitAdmin);
         aboutTextView = findViewById(R.id.textViewAboutAdmin);
         imageView = findViewById(R.id.imageViewReadAdmin);
-        back = findViewById(R.id.buttonBAckToListAdmin);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openListActivity();
-            }
-        });
+
+
 
         Upload selectedUpload = (Upload) getIntent().getSerializableExtra("SELECTED_UPLOAD");
         if (selectedUpload != null) {

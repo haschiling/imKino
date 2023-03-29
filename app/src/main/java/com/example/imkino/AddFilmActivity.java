@@ -74,16 +74,10 @@ public class AddFilmActivity extends AppCompatActivity {
         addImage = (Button) findViewById(R.id.buttonAddPhoto);
         addToList = (Button) findViewById(R.id.buttonAddToTheList);
         List = (Button) findViewById(R.id.buttonToTheList);
-        storageRef = FirebaseStorage.getInstance().getReference("uploads");
-        databaseRef = FirebaseDatabase.getInstance().getReference("uploads");
-        backToStartFromAdd = (Button) findViewById(R.id.buttonBackToStartFromAdd);
+        storageRef = FirebaseStorage.getInstance().getReference("users");
+        databaseRef = FirebaseDatabase.getInstance().getReference("users");
 
-        backToStartFromAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openListActivity();
-            }
-        });
+
 
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,8 +178,5 @@ public class AddFilmActivity extends AppCompatActivity {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
-    public void openListActivity(){
-        Intent intent = new Intent(this,ListActivity.class);
-        startActivity(intent);
-    }
+
 }

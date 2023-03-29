@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -21,16 +22,24 @@
         tools:targetApi="31">
         <activity
             android:name=".AboutAdminActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminListActivity" />
         <activity
             android:name=".AddFilmAdminActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".SignInActivity" />
         <activity
             android:name=".PermissionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminActivity"/>
+        <activity
+            android:name=".PermissionListActivity"
+            android:exported="false"
+            android:parentActivityName=".PermissionActivity"/>
         <activity
             android:name=".ListActivity"
             android:exported="false" />
@@ -40,22 +49,27 @@
             tools:ignore="Instantiatable" />
         <activity
             android:name=".FiltersListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".FiltersActivity" />
         <activity
             android:name=".FiltersActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ListActivity" />
         <activity
             android:name=".AdminListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
         <activity
             android:name=".AdminActivity"
             android:exported="false" />
         <activity
             android:name=".AddFilmActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
         <activity
             android:name=".AboutActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ListActivity" />
         <activity
             android:name=".SignInActivity"
             android:exported="true">

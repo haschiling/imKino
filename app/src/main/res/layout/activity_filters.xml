@@ -13,14 +13,7 @@
         android:orientation="horizontal">
 
 
-        <Button
-            android:id="@+id/buttonBackFilters"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:textColor="#0C104E"
-            app:backgroundTint="@color/white"
-            android:layout_weight="1"/>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
@@ -33,7 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="none"
-                android:textColor="@color/black">
+                android:text="Limit"
+                android:textColor="@color/white">
 
             </AutoCompleteTextView>
         </com.google.android.material.textfield.TextInputLayout>
@@ -49,11 +43,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="none"
-                android:textColor="@color/black">
+                android:text="Year"
+                android:textColor="@color/white">
 
             </AutoCompleteTextView>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="83dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            app:srcCompat="@drawable/logo" />
 
 
     </LinearLayout>
@@ -62,7 +63,7 @@
 
     <ListView
         android:id="@+id/listFilters"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

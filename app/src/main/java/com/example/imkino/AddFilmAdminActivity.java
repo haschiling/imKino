@@ -38,7 +38,6 @@ public class AddFilmAdminActivity extends AppCompatActivity {
     private Button List;
     private Button addImage;
     private Button addToList;
-    final int REQUEST_COD_GALLERY = 1;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri imageUri;
     private StorageReference storageRef;
@@ -49,6 +48,7 @@ public class AddFilmAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_film_admin);
+
 
         Picasso picasso = new Picasso.Builder(this).build();
 

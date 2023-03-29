@@ -34,13 +34,7 @@ public class FiltersListActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        back = (Button) findViewById(R.id.buttonBackToListF);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActvity2();
-            }
-        });
+
     }
     public void openActvity2(){
         Intent intent = new Intent(this, ListActivity.class);
