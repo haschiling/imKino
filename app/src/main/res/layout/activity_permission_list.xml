@@ -62,8 +62,8 @@
                 app:backgroundTint="@color/white"
                 android:text="change photo"/>
 
-            <EditText
-                android:id="@+id/editTextNameOfTheFilmPermission"
+            <TextView
+                android:id="@+id/TextNameOfTheFilmPermission"
                 android:layout_width="133dp"
                 android:layout_height="38dp"
                 android:hint=""
@@ -75,11 +75,10 @@
                 app:layout_constraintHorizontal_bias="0.809"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.286" />
+                app:layout_constraintVertical_bias="0.286"/>
 
-
-            <EditText
-                android:id="@+id/editTextGenrePermission"
+            <TextView
+                android:id="@+id/TextGenrePermission"
                 android:layout_width="133dp"
                 android:layout_height="38dp"
                 android:layout_marginLeft="10dp"
@@ -93,8 +92,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.217" />
 
-            <EditText
-                android:id="@+id/editTextDataPermission"
+            <TextView
+                android:id="@+id/TextDataPermission"
                 android:layout_width="133dp"
                 android:layout_height="38dp"
                 android:layout_marginLeft="10dp"
@@ -108,8 +107,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.348" />
 
-            <EditText
-                android:id="@+id/editTextAgePermission"
+
+            <TextView
+                android:id="@+id/TextAgePermission"
                 android:layout_width="133dp"
                 android:layout_height="39dp"
                 android:layout_marginLeft="10dp"
@@ -124,13 +124,16 @@
                 app:layout_constraintVertical_bias="0.413" />
 
 
+
+
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/editTextAboutFilmPermission"
+
+    <TextView
+        android:id="@+id/TextAboutFilmPermission"
         android:layout_width="330dp"
         android:layout_height="131dp"
         android:hint=""

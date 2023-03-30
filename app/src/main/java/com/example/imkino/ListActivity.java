@@ -41,6 +41,13 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         AutoCompleteTextView genreManu;
+        add = findViewById(R.id.buttonaddFILM);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPermissionActivity();
+            }
+        });
 
         uploadsList = new ArrayList<>();
         imageAdapter = new ImageAdapter(ListActivity.this, uploadsList);
@@ -112,7 +119,10 @@ public class ListActivity extends AppCompatActivity {
     }
 
 
-
+public void openPermissionActivity(){
+        Intent intent = new Intent(this,AddFilmActivity.class);
+        startActivity(intent);
+}
 
 
 

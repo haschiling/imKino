@@ -38,11 +38,11 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 public class PermissionListActivity extends AppCompatActivity {
-    EditText filmName;
-    EditText aboutFilm;
-    EditText filmGenre;
-    EditText filmData;
-    EditText filmLimit;
+    TextView filmName;
+    TextView aboutFilm;
+    TextView filmGenre;
+    TextView filmData;
+    TextView filmLimit;
     Button accept;
     Button delete;
     Button changePhoto;
@@ -70,11 +70,11 @@ public class PermissionListActivity extends AppCompatActivity {
 
 
 
-        filmName = findViewById(R.id.editTextNameOfTheFilmPermission);
-        aboutFilm  = findViewById(R.id.editTextAboutFilmPermission);
-        filmGenre = findViewById(R.id.editTextGenrePermission);
-        filmData  = findViewById(R.id.editTextDataPermission);
-        filmLimit  = findViewById(R.id.editTextAgePermission);
+        filmName = findViewById(R.id.TextNameOfTheFilmPermission);
+        aboutFilm  = findViewById(R.id.TextAboutFilmPermission);
+        filmGenre = findViewById(R.id.TextGenrePermission);
+        filmData  = findViewById(R.id.TextDataPermission);
+        filmLimit  = findViewById(R.id.TextAgePermission);
         accept = findViewById(R.id.buttonAccept);
         delete = findViewById(R.id.buttonDelete);
         changePhoto = findViewById(R.id.buttonChangePhoto);
@@ -86,28 +86,28 @@ public class PermissionListActivity extends AppCompatActivity {
 
         Upload selectedUpload = (Upload) getIntent().getSerializableExtra("SELECTED_UPLOAD");
         if (selectedUpload != null) {
-            databaseRef = FirebaseDatabase.getInstance().getReference();
-            databaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+            DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference();
             String pathString = "your/path/string";
             if (pathString != null) {
                 if (databaseRef != null) {
                     databaseRef.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            String name = selectedUpload.getName();
-                            String genre = selectedUpload.getGenre();
-                            String year = selectedUpload.getYear();
-                            String limit = selectedUpload.getLimit();
-                            String about = selectedUpload.getAbout();
-                            String imageUri = selectedUpload.getImageUri();
+                            Upload film = snapshot.getValue(Upload.class);
+                            String name = film.getName();
+                            String genre = film.getGenre();
+                            String year = film.getYear();
+                            String limit = film.getLimit();
+                            String about = film.getAbout();
+                            String imageUrl = film.getImageUri();
 
                             filmName.setText(name);
-                            aboutFilm.setText(genre);
-                            filmGenre.setText(year);
-                            filmData.setText(limit);
-                            filmLimit.setText(about);
+                            filmGenre.setText(genre);
+                            filmData.setText(year);
+                            filmLimit.setText(limit);
+                            aboutFilm.setText(about);
 
-                            Picasso.get().load(imageUri).into(imageOfFilm);
+                            Picasso.get().load(imageUrl).into(imageOfFilm);
 
                         }
 
@@ -117,10 +117,13 @@ public class PermissionListActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    uploadFile();
+                    Log.d(TAG, "mDatabaseRef is null");
                 }
             }
         }
+
+
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
