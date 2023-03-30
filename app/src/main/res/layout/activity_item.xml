@@ -30,6 +30,10 @@
             android:layout_width="156dp"
             android:layout_height="212dp"
             app:srcCompat="@drawable/ic_launcher_background" />
+
+
+
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -43,10 +47,11 @@
     <TextView
         android:id="@+id/textViewNameItem"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="48dp"
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewGenreItem"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -54,27 +59,28 @@
 
     <TextView
         android:id="@+id/textViewGenreItem"
-        android:layout_width="190dp"
-        android:layout_height="73dp"
-        android:text="TextView"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewYearItem"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textViewYearItem"
-        android:layout_width="189dp"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textViewYearItem"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 

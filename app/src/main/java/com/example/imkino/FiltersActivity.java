@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FiltersActivity extends AppCompatActivity {
-    private Button back;
+   /* private Button back;
     byte [] image;
     ListView listView;
     ArrayAdapter<String> adapter;
@@ -40,7 +40,7 @@ public class FiltersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filters);
+        //setContentView(R.layout.activity_filters);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -77,6 +77,8 @@ public class FiltersActivity extends AppCompatActivity {
         String [] age = {"0+","6+","12+","16+","18+","21+"};
         ArrayAdapter<String> ageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,age);
         ageMenu.setAdapter(ageAdapter);
+
+
 
 
         dataMenu =(AutoCompleteTextView) findViewById(R.id.dataMenu);
@@ -143,5 +145,6 @@ public class FiltersActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
+ */
 }
+

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -63,7 +64,7 @@ public class PermissionActivity extends AppCompatActivity {
 
 
         ListView listView = findViewById(R.id.listViewPermission);
-        listView.setAdapter(imageAdapter);
+        listView.setAdapter((ListAdapter) imageAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
